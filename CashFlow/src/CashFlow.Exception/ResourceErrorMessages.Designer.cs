@@ -61,7 +61,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The amount must be greater than zero.
+        ///   Looks up a localized string similar to The amount must be greater than zero..
         /// </summary>
         public static string AMOUNT_MUST_BE_GREATER_THAN_ZERO {
             get {
@@ -70,7 +70,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expenses cannot be for the future.
+        ///   Looks up a localized string similar to Expenses cannot be for the future..
         /// </summary>
         public static string EXPENSES_CANNOT_FOR_THE_FUTURE {
             get {
@@ -97,7 +97,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown error.
+        ///   Looks up a localized string similar to Unknown error..
         /// </summary>
         public static string UNKNOWN_ERROR {
             get {
