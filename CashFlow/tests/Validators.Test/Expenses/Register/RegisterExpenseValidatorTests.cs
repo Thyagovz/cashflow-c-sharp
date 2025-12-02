@@ -83,7 +83,7 @@ public class RegisterExpenseValidatorTests
         //Arrange
         var validator = new RegisterExpenseValidator();
         var request = RequestRegisterExpenseJsonBuilder.Build();
-        request.Amount = amount;    
+        request.Amount = amount;
 
         //Act
         var result = validator.Validate(request);

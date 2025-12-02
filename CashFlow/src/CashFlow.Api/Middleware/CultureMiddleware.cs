@@ -23,7 +23,7 @@ public class CultureMiddleware
         {
             cultureInfo = new CultureInfo(requestedCulture);
         }
-         
+
         CultureInfo.CurrentCulture = cultureInfo;
         CultureInfo.CurrentUICulture = cultureInfo;
 
