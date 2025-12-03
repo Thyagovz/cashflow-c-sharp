@@ -7,7 +7,7 @@ namespace CashFlow.Application.AutoMapper;
 
 public class AutoMapping : Profile
 {
-    public AutoMapping ()
+    public AutoMapping()
     {
         RequestToEntity();
         EntityToResponse();
@@ -21,5 +21,6 @@ public class AutoMapping : Profile
     private void EntityToResponse()
     {
         CreateMap<Expense, ResponseRegisteredExpenseJson>();
+        CreateMap<Expense, ResponseShortExpensesJson>();
     }
 }
