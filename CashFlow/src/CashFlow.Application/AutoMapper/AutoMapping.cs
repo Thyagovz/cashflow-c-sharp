@@ -9,10 +9,10 @@ public class AutoMapping : Profile
 {
     public AutoMapping ()
     {
-        RequestEntity();
+        RequestToEntity();
         EntityToResponse();
     }
-    private void RequestEntity()
+    private void RequestToEntity()
     {
         CreateMap<RequestRegisterExpenseJson, Expense>();
 
