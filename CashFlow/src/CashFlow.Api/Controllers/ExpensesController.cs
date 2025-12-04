@@ -36,4 +36,18 @@ public class ExpensesController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet]
+    [Route("{id}")]
+    [ProducesResponseType(typeof(ResponseExpenseJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+
+    public async Task<IActionResult> GetById(
+        [FromServices] IGetExpenseByIdUseCase useCase,
+        [FromRoute] long id)
+    {
+        var response = await useCase.Execute(id);
+
+        return Ok(response);
+    }
 }
