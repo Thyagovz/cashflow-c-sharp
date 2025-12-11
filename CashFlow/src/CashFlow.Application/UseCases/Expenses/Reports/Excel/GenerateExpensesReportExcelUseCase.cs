@@ -11,7 +11,9 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
     private readonly IExpensesReadOnlyRepository _repository;
 
     public GenerateExpensesReportExcelUseCase(IExpensesReadOnlyRepository repository)
-    { _repository = repository; }
+    { 
+        _repository = repository;
+    }
 
     public async Task<byte[]> Execute(DateOnly month)
     {
