@@ -7,6 +7,7 @@ namespace CashFlow.Application.UseCases.Expenses.Reports.Excel;
 
 public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUseCase
 {
+    private const string CURRENCY_SYMBOL = "€";
     private readonly IExpensesReadOnlyRepository _repository;
 
     public GenerateExpensesReportExcelUseCase(IExpensesReadOnlyRepository repository)
@@ -20,7 +21,7 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
             return [];
         }
 
-        var workbook = new XLWorkbook();
+        using var workbook = new XLWorkbook();
 
         workbook.Author = "Thyago Euclides";
         workbook.Style.Font.FontSize = 12;
@@ -36,16 +37,20 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
             worksheet.Cell($"A{raw}").Value = expense.Title;
             worksheet.Cell($"B{raw}").Value = expense.Date;
             worksheet.Cell($"C{raw}").Value = ConvertPaymentType(expense.PaymentType);
+
+
             worksheet.Cell($"D{raw}").Value = expense.Amount;
+            worksheet.Cell($"D{raw}").Style.NumberFormat.Format = $"-{CURRENCY_SYMBOL} #,##0.00";
             worksheet.Cell($"E{raw}").Value = expense.Description;
 
             raw++;
         }
 
+        worksheet.Columns().AdjustToContents();
 
         var file = new MemoryStream();
         workbook.SaveAs(file);
-
+                
         return file.ToArray();
     }
 
