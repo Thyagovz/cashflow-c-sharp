@@ -35,4 +35,10 @@
     <PackageReference Include="PDFsharp-MigraDoc" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Logo\ProfilePhoto.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
