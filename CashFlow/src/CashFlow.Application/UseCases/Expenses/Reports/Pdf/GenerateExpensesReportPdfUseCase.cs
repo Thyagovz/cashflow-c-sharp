@@ -1,4 +1,5 @@
-﻿using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Fonts;
+﻿using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Colors;
+using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Fonts;
 using CashFlow.Domain.Reports;
 using CashFlow.Domain.Repositories.Expenses;
 using MigraDoc.DocumentObjectModel;
@@ -40,6 +41,23 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         foreach (var expense in expenses)
         {
             var table = CreateExpenseTable(page);
+
+            var row = table.AddRow();
+            row.Height = 25;
+
+            row.Cells[0].AddParagraph(expense.Title);
+            row.Cells[0].Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorsHelper.BLACK };
+            row.Cells[0].Shading.Color = ColorsHelper.RED_LIGHT;
+            row.Cells[0].VerticalAlignment = VerticalAlignment.Center;
+            row.Cells[0].MergeRight = 2;
+            row.Cells[0].Format.LeftIndent = 20;
+
+            row.Cells[3].AddParagraph(ResourceReportGenerationMessages.AMOUNT);
+            row.Cells[3].Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorsHelper.WHITE };
+            row.Cells[3].Shading.Color = ColorsHelper.RED_DARK;
+            row.Cells[3].VerticalAlignment = VerticalAlignment.Center;
+
+            row = table.AddRow();
         }
 
         return RenderDocument(document);
@@ -83,7 +101,7 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
 
         var assembly = Assembly.GetExecutingAssembly();
         var directoryName = Path.GetDirectoryName(assembly.Location);
-        var pathFile = Path.Combine(directoryName!, "Logo", "ProfilePhoto.png");
+        var pathFile = Path.Combine(directoryName!, "Logo", "ProfilePhoto.jpg");
 
         row.Cells[0].AddImage(pathFile);
 
