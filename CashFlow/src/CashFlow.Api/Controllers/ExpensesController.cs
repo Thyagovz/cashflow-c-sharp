@@ -79,8 +79,8 @@ public class ExpensesController : ControllerBase
         [FromRoute] long id,
         [FromBody] RequestExpenseJson request)
     {
-        await useCase.Execute(id,request);
+        await useCase.Execute(id, request);
 
-        return NoContent(); 
+        return NoContent();
     }
 }
