@@ -30,7 +30,7 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         var expenses = await _repository.FilterByMonth(month);
         if (expenses.Count == 0)
         {
-            return [];
+            return Array.Empty<byte>();
         }
 
         var document = CreateDocument(month);
