@@ -147,4 +147,7 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>A sua palavra-passe deve ter, no mínimo, 8 caracteres, contendo pelo menos uma letra maiúscula, uma letra minúscula, um número e um carácter especial (por exemplo, !, ?, *, .).</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Este e-mail já está a ser utilizado.</value>
+  </data>
 </root>

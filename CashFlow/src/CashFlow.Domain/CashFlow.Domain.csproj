@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositories\NewFolder\**" />
+    <EmbeddedResource Remove="Repositories\NewFolder\**" />
+    <None Remove="Repositories\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Reports\ResourceReportGenerationMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

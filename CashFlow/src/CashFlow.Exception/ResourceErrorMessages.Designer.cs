@@ -70,6 +70,15 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email is already in use..
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTERED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email empty..
         /// </summary>
         public static string EMAIL_EMPTY {
@@ -124,7 +133,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment Type is not valid.
+        ///   Looks up a localized string similar to Payment Type is not valid..
         /// </summary>
         public static string PAYMENT_TYPE_INVALID {
             get {

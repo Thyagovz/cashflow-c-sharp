@@ -127,7 +127,7 @@
     <value>Expenses cannot be for the future.</value>
   </data>
   <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
-    <value>Payment Type is not valid</value>
+    <value>Payment Type is not valid.</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error.</value>
@@ -146,5 +146,8 @@
   </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Your password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (for example, !, ?, *, .).</value>
+  </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>This email is already in use.</value>
   </data>
 </root>
