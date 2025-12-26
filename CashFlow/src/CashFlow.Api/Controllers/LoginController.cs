@@ -1,28 +1,27 @@
-﻿using CashFlow.Communication.Responses;
+﻿using CashFlow.Application.UseCases.Login;
+using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers
 {
-    public class LoginController
+    [Route("api/[controller]")]
+    [ApiController]
+
+    public class LoginController : ControllerBase
     {
-        [Route("api/[controller]")]
-        [ApiController]
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
 
-        public class LoginController : ControllerBase
+        public async Task<IActionResult> Login(
+            [FromServices] IDoLoginUseCase useCase,
+            [FromBody] RequestLoginJson request)
+
         {
-            [HttpPost]
-            [ProducesResponseType(typeof (ResponseRegisteredUserJson), StatusCodes.Status200OK)]
-            [ProducesResponseType(typeof (ResponseErrorJson), StatusCodes.Status401Unauthorized)]
+            var response = await useCase.Execute(request);
 
-            public async Task<IActionResult> Login(
-                [FromServices] IDoLoginUseCase useCase,
-                [FromBody] RequestLoginJson request)
-
-            {
-                var response = await useCase.Execute(request);
-
-                return Ok(response);
-            }
+            return Ok(response);
         }
     }
 }
+

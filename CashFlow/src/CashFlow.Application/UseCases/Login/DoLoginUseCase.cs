@@ -24,7 +24,7 @@ namespace CashFlow.Application.UseCases.Login
 
         public async Task<ResponseRegisteredUserJson> Execute(RequestLoginJson request)
         {
-            var user = await _repository.GetUserByEmai(request.Email);
+            var user = await _repository.GetUserByEmail(request.Email);
 
             if (user is null)
             {
