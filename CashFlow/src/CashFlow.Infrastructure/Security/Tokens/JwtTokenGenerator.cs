@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CashFlow.Infrastructure.Security.Tokens;
 
-internal class JwtTokenGenerator : IAcessTokenGenerator
+internal class JwtTokenGenerator : IAccessTokenGenerator
 {
     private readonly uint _expirationTimeMinutes;
     private readonly string _signingKey;
