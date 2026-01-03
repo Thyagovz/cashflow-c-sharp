@@ -10,15 +10,15 @@ namespace CashFlow.Application.UseCases.Login.DoLogin
     public class DoLoginUseCase : IDoLoginUseCase
     {
         private readonly IUserReadOnlyRepository _repository;
-        private readonly IPasswordEncripter _passwordEncripter;
+        private readonly IPasswordEncrypter _passwordEncrypter;
         private readonly IAccessTokenGenerator _acessTokenGenerator;
 
         public DoLoginUseCase(
             IUserReadOnlyRepository repository,
-            IPasswordEncripter passwordEncripter,
+            IPasswordEncrypter passwordEncrypter,
             IAccessTokenGenerator acessTokenGenerator)
         {
-            _passwordEncripter = passwordEncripter;
+            _passwordEncrypter = passwordEncrypter;
             _repository = repository;
             _acessTokenGenerator = acessTokenGenerator;
         }
@@ -32,7 +32,7 @@ namespace CashFlow.Application.UseCases.Login.DoLogin
                 throw new InvalidLoginException();
             }
 
-            var passwordMatch = _passwordEncripter.Verify(request.Password, user.Password);
+            var passwordMatch = _passwordEncrypter.Verify(request.Password, user.Password);
 
             if (passwordMatch == false)
             {
