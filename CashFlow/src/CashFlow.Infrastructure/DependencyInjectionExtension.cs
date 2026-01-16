@@ -45,11 +45,7 @@ public static class DependencyInjectionExtension
     {
         var connectionString = configuration.GetConnectionString("Connection");
 
-        if (string.IsNullOrWhiteSpace(connectionString))
-            throw new Exception("The connectionString environment variable was not found.");
-
-        var version = new Version(8, 0, 44);
-        var serverVersion = new MySqlServerVersion(version);
+        var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         services.AddDbContext<CashFlowDbContext>(config => config.UseMySql(connectionString, serverVersion));
     }
