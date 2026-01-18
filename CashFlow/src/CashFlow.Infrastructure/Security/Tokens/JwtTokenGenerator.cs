@@ -20,18 +20,18 @@ internal class JwtTokenGenerator : IAccessTokenGenerator
 
     public string Generate(User user)
     {
-        var  claims = new List<Claim>()
+        var claims = new List<Claim>()
         {
             new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Sid, user.UserIdentifier.ToString())
-
+            new Claim(ClaimTypes.Sid, user.UserIdentifier.ToString()),
+            new Claim(ClaimTypes.Role, user.Role)
         };
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Expires = DateTime.UtcNow.AddMinutes(_expirationTimeMinutes),
             SigningCredentials = new SigningCredentials(SecurityKey(), SecurityAlgorithms.HmacSha256Signature),
-            Subject =  new ClaimsIdentity(claims)
+            Subject = new ClaimsIdentity(claims)
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();
