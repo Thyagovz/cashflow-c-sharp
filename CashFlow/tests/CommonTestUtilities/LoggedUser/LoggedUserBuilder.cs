@@ -1,5 +1,5 @@
 ﻿using CashFlow.Domain.Entities;
-using CashFlow.Domain.Services.ILoggedUser;
+using CashFlow.Domain.Services.LoggedUser;
 using Moq;
 
 namespace CommonTestUtilities.LoggedUser;

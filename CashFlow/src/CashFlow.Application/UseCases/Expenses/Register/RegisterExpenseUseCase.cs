@@ -4,7 +4,7 @@ using CashFlow.Communication.Responses;
 using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
-using CashFlow.Domain.Services.ILoggedUser;
+using CashFlow.Domain.Services.LoggedUser;
 using CashFlow.Exception.ExceptionsBase;
 
 namespace CashFlow.Application.UseCases.Expenses.Register;

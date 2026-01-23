@@ -2,7 +2,7 @@
 using CashFlow.Communication.Requests;
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
-using CashFlow.Domain.Services.ILoggedUser;
+using CashFlow.Domain.Services.LoggedUser;
 using CashFlow.Exception;
 using CashFlow.Exception.ExceptionsBase;
 

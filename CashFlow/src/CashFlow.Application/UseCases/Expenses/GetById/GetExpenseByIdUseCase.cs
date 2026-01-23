@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CashFlow.Communication.Responses;
 using CashFlow.Domain.Repositories.Expenses;
-using CashFlow.Domain.Services.ILoggedUser;
+using CashFlow.Domain.Services.LoggedUser;
 using CashFlow.Exception;
 using CashFlow.Exception.ExceptionsBase;
 
