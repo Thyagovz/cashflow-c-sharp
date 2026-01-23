@@ -16,7 +16,7 @@ public class RegisterExpenseTest : CashFlowClassFixture
 
     public RegisterExpenseTest(CustomWebApplicationFactory WebApplicationFactory) : base(WebApplicationFactory)
     {
-        _token = WebApplicationFactory.GetToken();
+        _token = WebApplicationFactory.User_Team_Member.GetToken();
     }
 
     [Fact]
