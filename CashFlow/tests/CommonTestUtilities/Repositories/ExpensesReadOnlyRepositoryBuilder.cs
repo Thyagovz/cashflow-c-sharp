@@ -22,8 +22,15 @@ public class ExpensesReadOnlyRepositoryBuilder
 
     public ExpensesReadOnlyRepositoryBuilder GetById(User user, Expense? expense)
     {
-        if(expense is not null)
+        if (expense is not null)
             _repository.Setup(repository => repository.GetById(user, expense.Id)).ReturnsAsync(expense);
+
+        return this;
+    }
+
+    public ExpensesReadOnlyRepositoryBuilder FilterByMonth(User user, List<Expense> expenses)
+    {
+        _repository.Setup(repository => repository.FilterByMonth(user, It.IsAny<DateOnly>())).ReturnsAsync(expenses);
 
         return this;
     }
