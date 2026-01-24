@@ -4,9 +4,9 @@ using CashFlow.Exception;
 using CommonTestUtilities.Requests;
 using FluentAssertions;
 
-namespace Validators.Test.Expenses.Register;
+namespace Validators.Tests.Expenses;
 
-public class RegisterExpenseValidatorTests
+public class ExpenseValidatorTests
 {
     [Fact]
     public void Success()
@@ -21,11 +21,12 @@ public class RegisterExpenseValidatorTests
         //Assert
         result.IsValid.Should().BeTrue();
     }
+
     [Theory]
     [InlineData("")]
-    [InlineData("            ")]
+    [InlineData("         ")]
     [InlineData(null)]
-    public void Error_Title_Empty(string? title)
+    public void Error_Title_Empty(string title)
     {
         //Arrange
         var validator = new ExpenseValidator();
@@ -41,7 +42,6 @@ public class RegisterExpenseValidatorTests
     }
 
     [Fact]
-
     public void Error_Date_Future()
     {
         //Arrange
